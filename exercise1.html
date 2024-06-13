@@ -4,30 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 1: Basic English Grammar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function checkAnswers() {
+            var correctAnswers = ["am", "have", "goes"];
+            var userAnswers = [
+                document.getElementById('q1').value.toLowerCase(),
+                document.getElementById('q2').value.toLowerCase(),
+                document.getElementById('q3').value.toLowerCase()
+            ];
+            var score = 0;
+            for (var i = 0; i < userAnswers.length; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            document.getElementById('result').textContent = "You got " + score + " out of 3 correct!";
+        }
+    </script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="lessons.html">Lessons</a></li>
-            <li><a href="exercises.html">Exercises</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">English Learning</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lessons.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exercises.html">Exercises</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="games.html">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="comic.html">Comic</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-    <h1>Exercise 1: Basic English Grammar</h1>
-    <p>Fill in the blanks with the correct form of the verb:</p>
-    <form>
-        <label for="sentence1">She (to be) ... happy.</label><br>
-        <input type="text" id="sentence1" name="sentence1"><br><br>
-        <label for="sentence2">They (to have) ... a cat.</label><br>
-        <input type="text" id="sentence2" name="sentence2"><br><br>
-        <label for="sentence3">He (to go) ... to school.</label><br>
-        <input type="text" id="sentence3" name="sentence3"><br><br>
-        <input type="submit" value="Submit">
-    </form>
-    <p><strong>Source:</strong> Created for educational purposes.</p>
-    <a href="lesson1.html">Back to Lesson 1</a>
+    <div class="container">
+        <h1>Exercise 1: Basic English Grammar</h1>
+        <form>
+            <label for="q1">I ___ happy. (am/is)</label><br>
+            <input type="text" id="q1" name="q1"><br><br>
+            <label for="q2">They ___ a cat. (have/has)</label><br>
+            <input type="text" id="q2" name="q2"><br><br>
+            <label for="q3">He ___ to school. (goes/go)</label><br>
+            <input type="text" id="q3" name="q3"><br><br>
+            <input type="button" value="Submit" onclick="checkAnswers()">
+        </form>
+        <p id="result"></p>
+        <p><strong>Source:</strong> Created for educational purposes.</p>
+    </div>
 </body>
 </html>

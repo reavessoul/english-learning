@@ -4,30 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 2: Vocabulary and Phrases</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function checkMatch() {
+            var correctMatches = {
+                "House": "a building for human habitation",
+                "Car": "a road vehicle",
+                "Friend": "a person with whom one has a bond"
+            };
+            var score = 0;
+            for (var word in correctMatches) {
+                var userMatch = document.getElementById(word).value.toLowerCase();
+                if (userMatch === correctMatches[word].toLowerCase()) {
+                    score++;
+                }
+            }
+            document.getElementById('result').textContent = "You got " + score + " out of 3 correct!";
+        }
+    </script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="lessons.html">Lessons</a></li>
-            <li><a href="exercises.html">Exercises</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">English Learning</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lessons.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exercises.html">Exercises</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="games.html">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="comic.html">Comic</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-    <h1>Exercise 2: Vocabulary and Phrases</h1>
-    <p>Match the words with their meanings:</p>
-    <form>
-        <label for="word1">House:</label><br>
-        <input type="text" id="word1" name="word1"><br><br>
-        <label for="word2">Car:</label><br>
-        <input type="text" id="word2" name="word2"><br><br>
-        <label for="word3">Friend:</label><br>
-        <input type="text" id="word3" name="word3"><br><br>
-        <input type="submit" value="Submit">
-    </form>
-    <p><strong>Source:</strong> Created for educational purposes.</p>
-    <a href="lesson2.html">Back to Lesson 2</a>
+    <div class="container">
+        <h1>Exercise 2: Vocabulary and Phrases</h1>
+        <form>
+            <label for="House">House:</label><br>
+            <input type="text" id="House" name="House"><br><br>
+            <label for="Car">Car:</label><br>
+            <input type="text" id="Car" name="Car"><br><br>
+            <label for="Friend">Friend:</label><br>
+            <input type="text" id="Friend" name="Friend"><br><br>
+            <input type="button" value="Submit" onclick="checkMatch()">
+        </form>
+        <p id="result"></p>
+        <p><strong>Source:</strong> Created for educational purposes.</p>
+    </div>
 </body>
 </html>

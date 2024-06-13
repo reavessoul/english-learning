@@ -4,34 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 3: Pronunciation and Intonation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function checkIntonation() {
+            var correctAnswers = ["rising", "falling"];
+            var userAnswers = [
+                document.querySelector('input[name="intonation1"]:checked').value,
+                document.querySelector('input[name="intonation2"]:checked').value
+            ];
+            var score = 0;
+            for (var i = 0; i < userAnswers.length; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            document.getElementById('result').textContent = "You got " + score + " out of 2 correct!";
+        }
+    </script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="lessons.html">Lessons</a></li>
-            <li><a href="exercises.html">Exercises</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">English Learning</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lessons.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exercises.html">Exercises</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="games.html">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="comic.html">Comic</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-    <h1>Exercise 3: Pronunciation and Intonation</h1>
-    <p>Listen to the audio and choose the correct intonation pattern:</p>
-    <form>
-        <label for="question1">Are you coming?</label><br>
-        <input type="radio" id="rising1" name="intonation1" value="rising">
-        <label for="rising1">Rising</label><br>
-        <input type="radio" id="falling1" name="intonation1" value="falling">
-        <label for="falling1">Falling</label><br><br>
-        <label for="question2">I am coming.</label><br>
-        <input type="radio" id="rising2" name="intonation2" value="rising">
-        <label for="rising2">Rising</label><br>
-        <input type="radio" id="falling2" name="intonation2" value="falling">
-        <label for="falling2">Falling</label><br><br>
-        <input type="submit" value="Submit">
-    </form>
-    <p><strong>Source:</strong> Created for educational purposes.</p>
-    <a href="lesson3.html">Back to Lesson 3</a>
+    <div class="container">
+        <h1>Exercise 3: Pronunciation and Intonation</h1>
+        <form>
+            <label for="question1">Are you coming?</label><br>
+            <input type="radio" id="rising1" name="intonation1" value="rising">
+            <label for="rising1">Rising</label><br>
+            <input type="radio" id="falling1" name="intonation1" value="falling">
+            <label for="falling1">Falling</label><br><br>
+            <label for="question2">I am coming.</label><br>
+            <input type="radio" id="rising2" name="intonation2" value="rising">
+            <label for="rising2">Rising</label><br>
+            <input type="radio" id="falling2" name="intonation2" value="falling">
+            <label for="falling2">Falling</label><br><br>
+            <input type="button" value="Submit" onclick="checkIntonation()">
+        </form>
+        <p id="result"></p>
+        <p><strong>Source:</strong> Created for educational purposes.</p>
+    </div>
 </body>
 </html>
