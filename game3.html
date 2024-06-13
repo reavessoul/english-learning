@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game 3: Pronunciation and Intonation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .audio-icon {
+            width: 50px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .bouncing {
+            animation: bounce 1s infinite;
+        }
+    </style>
+    <script>
+        function checkIntonation() {
+            var correctAnswers = ["rising", "falling"];
+            var userAnswers = [
+                document.querySelector('input[name="intonation1"]:checked').value,
+                document.querySelector('input[name="intonation2"]:checked').value
+            ];
+            var score = 0;
+            for (var i = 0; i < userAnswers.length; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            document.getElementById('result').textContent = "You got " + score + " out of 2 correct!";
+            var audioIcon = document.getElementById('audio-icon');
+            if (score === 2) {
+                audioIcon.classList.add('bouncing');
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <h1>Game 3: Pronunciation and Intonation</h1>
+    <p>Listen to the audio and choose the correct intonation pattern:</p>
+    <form>
+        <label for="question1">Are you coming?</label><br>
+        <input type="radio" id="rising1" name="intonation1" value="rising">
+        <label for="rising1">Rising</label><br>
+        <input type="radio" id="falling1" name="intonation1" value="falling">
+        <label for="falling1">Falling</label><br><br>
+        <label for="question2">I am coming.</label><br>
+        <input type="radio" id="rising2" name="intonation2" value="rising">
+        <label for="rising2">Rising</label><br>
+        <input type="radio" id="falling2" name="intonation2" value="falling">
+        <label for="falling2">Falling</label><br><br>
+        <input type="button" value="Submit" onclick="checkIntonation()">
+    </form>
+    <p id="result"></p>
+    <img src="images/audio-icon.png" id="audio-icon" class="audio-icon" alt="Audio Icon">
+    <p><strong>Source:</strong> Created for educational purposes.</p>
+    <a href="lesson3.html">Back to Lesson 3</a>
+</body>
+</html>

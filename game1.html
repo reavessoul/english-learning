@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game 1: Basic English Grammar</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .character {
+            width: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes jump {
+            0% { bottom: 0; }
+            50% { bottom: 150px; }
+            100% { bottom: 0; }
+        }
+
+        .jumping {
+            animation: jump 1s ease-in-out;
+        }
+    </style>
+    <script>
+        function checkAnswers() {
+            var correctAnswers = ["am", "have", "goes"];
+            var userAnswers = [
+                document.getElementById('q1').value,
+                document.getElementById('q2').value,
+                document.getElementById('q3').value
+            ];
+            var score = 0;
+            for (var i = 0; i < userAnswers.length; i++) {
+                if (userAnswers[i].toLowerCase() === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            document.getElementById('result').textContent = "You got " + score + " out of 3 correct!";
+            var character = document.getElementById('character');
+            if (score === 3) {
+                character.classList.add('jumping');
+                setTimeout(function() {
+                    character.classList.remove('jumping');
+                }, 1000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <h1>Game 1: Basic English Grammar</h1>
+    <form>
+        <label for="q1">I ___ happy. (am/is)</label><br>
+        <input type="text" id="q1" name="q1"><br><br>
+        <label for="q2">They ___ a cat. (have/has)</label><br>
+        <input type="text" id="q2" name="q2"><br><br>
+        <label for="q3">He ___ to school. (goes/go)</label><br>
+        <input type="text" id="q3" name="q3"><br><br>
+        <input type="button" value="Submit" onclick="checkAnswers()">
+    </form>
+    <p id="result"></p>
+    <img src="images/character.png" id="character" class="character" alt="Character">
+    <p><strong>Source:</strong> Created for educational purposes.</p>
+    <a href="lesson1.html">Back to Lesson 1</a>
+</body>
+</html>

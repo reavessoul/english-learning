@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game 2: Vocabulary and Phrases</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .balloon {
+            width: 50px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes float {
+            0% { bottom: 0; }
+            100% { bottom: 300px; }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out forwards;
+        }
+    </style>
+    <script>
+        function checkMatch() {
+            var correctMatches = {
+                "House": "a building for human habitation",
+                "Car": "a road vehicle",
+                "Friend": "a person with whom one has a bond"
+            };
+            var score = 0;
+            for (var word in correctMatches) {
+                var userMatch = document.getElementById(word).value;
+                if (userMatch === correctMatches[word]) {
+                    score++;
+                }
+            }
+            document.getElementById('result').textContent = "You got " + score + " out of 3 correct!";
+            var balloon = document.getElementById('balloon');
+            if (score === 3) {
+                balloon.classList.add('floating');
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <h1>Game 2: Vocabulary and Phrases</h1>
+    <form>
+        <label for="House">House:</label><br>
+        <input type="text" id="House" name="House"><br><br>
+        <label for="Car">Car:</label><br>
+        <input type="text" id="Car" name="Car"><br><br>
+        <label for="Friend">Friend:</label><br>
+        <input type="text" id="Friend" name="Friend"><br><br>
+        <input type="button" value="Submit" onclick="checkMatch()">
+    </form>
+    <p id="result"></p>
+    <img src="images/balloon.png" id="balloon" class="balloon" alt="Balloon">
+    <p><strong>Source:</strong> Created for educational purposes.</p>
+    <a href="lesson2.html">Back to Lesson 2</a>
+</body>
+</html>
